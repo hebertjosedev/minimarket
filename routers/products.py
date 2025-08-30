@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import SessionLocal
+from typing import List
 from models.product import Product
 from models.product import Category
 from schemas.product import ProductCreate, CategoryCreate, ProductSchema, ProductUpdate, CategoryUpdate, CategoryOut
@@ -91,4 +92,9 @@ def delete_category(category_id: int, db: Session = Depends(get_db)):
     db.delete(category)
     db.commit()
     return {"status_message": f"Categoría con ID {category_id} eliminada exitosamente"}
+
+@router.get("/categories", response_model=List[CategoryOut])
+def get_categories(db: Session = Depends(get_db)):
+    categories = db.query(Category).order_by(Category.name.asc()).all()
+    return categories
 
