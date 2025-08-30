@@ -1,5 +1,5 @@
-echo "Aplicando migraciones..."
+echo "🔧 Ejecutando migraciones con Alembic..."
 alembic upgrade head
 
-echo "Iniciando servidor FastAPI..."
+echo "🚀 Iniciando FastAPI..."
 uvicorn main:app --host=0.0.0.0 --port=10000
