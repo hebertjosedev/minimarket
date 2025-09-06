@@ -5,8 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-    "http://localhost:5176",
-    "https://tudominio.com",
+    "http://localhost",
+    "http://localhost:5173", # El origen de tu aplicación de React
 ]
 
 app.add_middleware(
