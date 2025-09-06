@@ -6,7 +6,8 @@ app = FastAPI()
 
 origins = [
     "http://localhost",
-    "http://localhost:5173", # El origen de tu aplicación de React
+    "http://localhost:5173",
+    "https://practica-proyecto1.onrender.com" 
 ]
 
 app.add_middleware(
