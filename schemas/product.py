@@ -7,6 +7,7 @@ class ProductSchema(BaseModel):
     description: str
     price: float
     stock: int
+    image_url: str
 
     model_config = {
     "from_attributes": True
